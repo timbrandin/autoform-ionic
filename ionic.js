@@ -45,6 +45,13 @@ Template['afFormGroup_ionic'].helpers({
   }
 });
 
+Template['afObjectField_ionic'].helpers({
+  skipLabel: function() {
+    var self = this;
+    return self.skipLabel || false;
+  }
+});
+
 _.each([
   "afSelect_ionic",
   "afBooleanSelect_ionic",

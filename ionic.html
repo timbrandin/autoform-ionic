@@ -56,15 +56,19 @@
 </template>
 
 <template name="afObjectField_ionic">
-  {{#with afFieldLabelText name=this.name}}
-    <div class="item item-divider">
-      {{this}}
-    </div>
-  {{/with}}
-  {{#if afFieldIsInvalid name=this.name}}
-    <div class="assertive">{{{afFieldMessage name=this.name}}}</div>
+  {{#if skipLabel}}
+    {{> afQuickFields name=this.name}}
+  {{else}}
+    {{#with afFieldLabelText name=this.name}}
+      <div class="item item-divider">
+        {{this}}
+      </div>
+    {{/with}}
+    {{#if afFieldIsInvalid name=this.name}}
+      <div class="assertive">{{{afFieldMessage name=this.name}}}</div>
+    {{/if}}
+    {{> afQuickFields name=this.name}}
   {{/if}}
-  {{> afQuickFields name=this.name}}
 </template>
 
 <template name="afArrayField_ionic">
